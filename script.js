@@ -5,6 +5,94 @@
 
 'use strict';
 
+// ==========================================
+// ANTI-COPY & ANTI-INSPECT PROTECTION
+// ==========================================
+
+// Disable keyboard shortcuts for inspect/copy
+function disableShortcuts(e) {
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+S, Ctrl+P
+    const blockedKeys = [
+        123, // F12
+    ];
+    
+    const blockedCombos = [
+        { ctrl: true, shift: true, key: 73 },  // Ctrl+Shift+I (Inspect)
+        { ctrl: true, shift: true, key: 74 },  // Ctrl+Shift+J (Console)
+        { ctrl: true, key: 85 },               // Ctrl+U (View Source)
+        { ctrl: true, key: 67 },               // Ctrl+C (Copy)
+        { ctrl: true, key: 86 },               // Ctrl+V (Paste)
+        { ctrl: true, key: 88 },               // Ctrl+X (Cut)
+        { ctrl: true, key: 83 },               // Ctrl+S (Save)
+        { ctrl: true, key: 80 },               // Ctrl+P (Print)
+        { ctrl: true, shift: true, key: 67 },  // Ctrl+Shift+C
+    ];
+
+    // Check single keys (F12)
+    if (blockedKeys.includes(e.keyCode || e.which)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+
+    // Check key combinations
+    for (const combo of blockedCombos) {
+        const ctrlMatch = combo.ctrl ? (e.ctrlKey || e.metaKey) : true;
+        const shiftMatch = combo.shift ? e.shiftKey : true;
+        const keyMatch = (e.keyCode || e.which) === combo.key;
+
+        if (ctrlMatch && shiftMatch && keyMatch) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// Disable drag events
+document.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable copy/paste/cut via mouse
+document.addEventListener('copy', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+document.addEventListener('cut', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+document.addEventListener('paste', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Disable context menu via mouse (right click)
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    return false;
+});
+
+// Global keydown listener
+document.addEventListener('keydown', (e) => {
+    return disableShortcuts(e);
+});
+
+// Disable developer tools detection (console.log override)
+Object.defineProperty(window, 'console', {
+    value: console,
+    writable: false,
+    configurable: false
+});
+
+// ==========================================
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
