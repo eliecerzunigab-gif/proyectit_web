@@ -301,22 +301,32 @@ ul {
     padding: 120px 0 80px;
 }
 
-/* Background Slider */
+/* Background Slider - Optimizado para todos los dispositivos */
 .hero__slider {
     position: absolute;
     inset: 0;
     z-index: 0;
+    overflow: hidden;
 }
 
 .hero__slide {
     position: absolute;
-    inset: 0;
+    inset: -5px; /* Pequeño extra para evitar bordes blancos en ciertos viewports */
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     opacity: 0;
     transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: opacity;
+    /* Asegura que la imagen se vea bien en cualquier relación de aspecto */
+    background-attachment: fixed;
+}
+
+/* Fallback para dispositivos que no soportan background-attachment: fixed */
+@supports not (background-attachment: fixed) {
+    .hero__slide {
+        background-attachment: scroll;
+    }
 }
 
 .hero__slide.active {
@@ -325,27 +335,39 @@ ul {
 
 .hero__slide--1 {
     background-image: url('Imagenes/ProyectITWEB1.jpg');
+    /* Prioriza la parte central de la imagen en todos los tamaños */
+    background-position: center center;
 }
 
 .hero__slide--2 {
     background-image: url('Imagenes/ProyectITWEB2.jpg');
+    background-position: center center;
 }
 
 .hero__slide--3 {
     background-image: url('Imagenes/ProyectITWEB3.jpg');
+    background-position: center center;
 }
 
-/* Overlay oscuro para legibilidad del texto */
+/* Overlay oscuro para legibilidad del texto - más fuerte en los bordes */
 .hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-        135deg,
-        rgba(11, 13, 26, 0.85) 0%,
-        rgba(11, 13, 26, 0.65) 40%,
-        rgba(11, 13, 26, 0.5) 100%
-    );
+    background: 
+        /* Gradiente principal oscuro */
+        linear-gradient(
+            135deg,
+            rgba(11, 13, 26, 0.88) 0%,
+            rgba(11, 13, 26, 0.60) 50%,
+            rgba(11, 13, 26, 0.45) 100%
+        ),
+        /* Gradiente adicional para oscurecer bordes en pantallas anchas */
+        radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(11, 13, 26, 0.3) 100%
+        );
     pointer-events: none;
 }
 
@@ -1012,6 +1034,54 @@ ul {
 
     .footer__brand p {
         max-width: 100%;
+    }
+}
+
+/* Pantallas ultra-wide (mayor a 1920px) */
+@media (min-width: 1921px) {
+    .hero__slide {
+        background-size: cover;
+    }
+}
+
+/* Landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: 120vh;
+        padding: 100px 0 40px;
+    }
+    
+    .hero__title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem);
+    }
+    
+    .hero__subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+    
+    .hero__actions {
+        margin-bottom: 20px;
+    }
+    
+    .hero__visual {
+        display: none;
+    }
+}
+
+/* Tablets en landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .hero__container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    
+    .hero__visual {
+        display: flex;
+    }
+    
+    .hero__code-card {
+        max-width: 320px;
     }
 }
 
