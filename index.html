@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project IT - Talento TI que Transforma</title>
+    <meta name="description" content="Project IT: Tu aliado estratégico en suministro de talento TI. DevOps, Inteligencia Artificial, Ciberseguridad, Nearshore y Diseño UX/UI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ===== HEADER / NAVBAR ===== -->
+    <header class="header" id="header">
+        <div class="container header__container">
+            <a href="#" class="logo">
+                <span class="logo__icon">&#9881;</span>
+                <span class="logo__text">Project <span class="logo__highlight">IT</span></span>
+            </a>
+            <nav class="nav" id="nav">
+                <ul class="nav__list">
+                    <li><a href="#hero" class="nav__link active">Inicio</a></li>
+                    <li><a href="#about" class="nav__link">Nosotros</a></li>
+                    <li><a href="#services" class="nav__link">Servicios</a></li>
+                    <li><a href="#contact" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero__bg"></div>
+        <div class="container hero__container">
+            <div class="hero__content">
+                <span class="hero__badge">Talento TI Global</span>
+                <h1 class="hero__title">
+                    Talento TI listo para <span class="gradient-text">tu empresa</span>
+                </h1>
+                <p class="hero__subtitle">
+                    El tiempo es dinero y los profesionales adecuados hacen la diferencia. 
+                    Con Project IT, accede a perfiles TI que cumplen con los estándares 
+                    internacionales y están listos para integrarse a tu equipo.
+                </p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary">
+                        <i class="fas fa-paper-plane"></i> Contáctanos hoy
+                    </a>
+                    <a href="#services" class="btn btn--outline">
+                        <i class="fas fa-arrow-down"></i> Ver servicios
+                    </a>
+                </div>
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number" data-count="150">0</span>
+                        <span class="stat__label">Clientes Satisfechos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="500">0</span>
+                        <span class="stat__label">Profesionales TI</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-count="98">0</span>
+                        <span class="stat__label">% Retención</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="hero__code-card">
+                    <div class="code-card__header">
+                        <span class="code-dot code-dot--red"></span>
+                        <span class="code-dot code-dot--yellow"></span>
+                        <span class="code-dot code-dot--green"></span>
+                    </div>
+                    <div class="code-card__body">
+                        <pre><span class="code-keyword">const</span> talento = <span class="code-keyword">await</span> ProjectIT.<span class="code-func">find</span>({<br>  skills: [<span class="code-string">"DevOps"</span>, <span class="code-string">"AI"</span>, <span class="code-string">"Security"</span>],<br>  ready: <span class="code-boolean">true</span><br>});<br><br><span class="code-comment">// Talento que impulsa resultados</span><br><span class="code-keyword">return</span> talento.<span class="code-func">integrate</span>();</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Nosotros</span>
+                <h2 class="section__title">De LATAM al mundo, <span class="gradient-text">talento que transforma</span></h2>
+                <p class="section__desc">
+                    ¿Quieres que tu empresa tenga acceso a los mejores ingenieros y desarrolladores TI 
+                    de la región? Project IT es tu aliado estratégico en suministro de talento TI: 
+                    identificamos, validamos y entregamos perfiles que marcan la diferencia.
+                </p>
+            </div>
+            <div class="about__grid">
+                <div class="about__card">
+                    <div class="about__icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Identificamos</h3>
+                    <p>Buscamos los mejores perfiles TI de LATAM con estándares internacionales.</p>
+                </div>
+                <div class="about__card">
+                    <div class="about__icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Validamos</h3>
+                    <p>Certificamos habilidades técnicas y blandas para garantizar calidad.</p>
+                </div>
+                <div class="about__card">
+                    <div class="about__icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Entregamos</h3>
+                    <p>Integramos talento listo para impulsar resultados desde el día uno.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Servicios</span>
+                <h2 class="section__title">Soluciones TI que <span class="gradient-text">impulsan tu negocio</span></h2>
+                <p class="section__desc">
+                    Ofrecemos un portafolio completo de servicios tecnológicos con talento certificado 
+                    de primer nivel. La innovación empieza por tu equipo.
+                </p>
+            </div>
+            <div class="services__grid">
+                <!-- DevOps -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-card__icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="service-card__title">DevOps</h3>
+                    <p class="service-card__desc">
+                        Optimiza tu software, acelera tu equipo y garantiza calidad. Implementamos 
+                        DevOps que conecta desarrollo y operaciones para resultados sin errores.
+                    </p>
+                    <ul class="service-card__features">
+                        <li><i class="fas fa-check-circle"></i> CI/CD Pipeline</li>
+                        <li><i class="fas fa-check-circle"></i> Infraestructura como código</li>
+                        <li><i class="fas fa-check-circle"></i> Monitoreo continuo</li>
+                    </ul>
+                    <div class="service-card__tagline">
+                        <i class="fas fa-bolt"></i> Software ágil, equipos sincronizados
+                    </div>
+                </div>
+
+                <!-- Inteligencia Artificial -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card__icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-card__title">Inteligencia Artificial</h3>
+                    <p class="service-card__desc">
+                        Transforma datos en decisiones inteligentes. Desarrollamos soluciones de IA 
+                        que optimizan procesos y mejoran la eficiencia de tu equipo.
+                    </p>
+                    <ul class="service-card__features">
+                        <li><i class="fas fa-check-circle"></i> Machine Learning</li>
+                        <li><i class="fas fa-check-circle"></i> Procesamiento de lenguaje natural</li>
+                        <li><i class="fas fa-check-circle"></i> Automatización inteligente</li>
+                    </ul>
+                    <div class="service-card__tagline">
+                        <i class="fas fa-chart-line"></i> Datos que trabajan por ti
+                    </div>
+                </div>
+
+                <!-- Ciberseguridad -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card__icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3 class="service-card__title">Ciberseguridad</h3>
+                    <p class="service-card__desc">
+                        Protege lo que más importa: tu información. Ofrecemos soluciones de 
+                        ciberseguridad proactivas que previenen riesgos y aseguran tu negocio.
+                    </p>
+                    <ul class="service-card__features">
+                        <li><i class="fas fa-check-circle"></i> Auditoría de seguridad</li>
+                        <li><i class="fas fa-check-circle"></i> Protección 24/7</li>
+                        <li><i class="fas fa-check-circle"></i> Cumplimiento normativo</li>
+                    </ul>
+                    <div class="service-card__tagline">
+                        <i class="fas fa-lock"></i> Tu empresa protegida 24/7
+                    </div>
+                </div>
+
+                <!-- Dotación de Personal TI / Nearshore -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card__icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-card__title">Talento Nearshore</h3>
+                    <p class="service-card__desc">
+                        Accede al talento que necesitas, cuando lo necesitas. Suministramos 
+                        especialistas TI calificados a tu equipo, sin complicaciones.
+                    </p>
+                    <ul class="service-card__features">
+                        <li><i class="fas fa-check-circle"></i> Perfiles certificados</li>
+                        <li><i class="fas fa-check-circle"></i> Integración remota</li>
+                        <li><i class="fas fa-check-circle"></i> Escalabilidad inmediata</li>
+                    </ul>
+                    <div class="service-card__tagline">
+                        <i class="fas fa-globe-americas"></i> Especialistas listos para tu empresa
+                    </div>
+                </div>
+
+                <!-- Diseño UX/UI -->
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card__icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="service-card__title">Diseño UX/UI</h3>
+                    <p class="service-card__desc">
+                        Experiencias que enamoran al usuario. Creamos interfaces intuitivas y 
+                        atractivas que elevan la productividad y la satisfacción del cliente.
+                    </p>
+                    <ul class="service-card__features">
+                        <li><i class="fas fa-check-circle"></i> Investigación de usuarios</li>
+                        <li><i class="fas fa-check-circle"></i> Prototipado interactivo</li>
+                        <li><i class="fas fa-check-circle"></i> Pruebas de usabilidad</li>
+                    </ul>
+                    <div class="service-card__tagline">
+                        <i class="fas fa-mobile-screen"></i> Interfaces que conectan con tus usuarios
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta section">
+        <div class="container">
+            <div class="cta__content">
+                <h2 class="cta__title">Profesionales TI certificados <span class="gradient-text">✅</span></h2>
+                <p class="cta__desc">
+                    Listos para impulsar tus resultados. No busques más, encuentra talento 
+                    que impulsa resultados.
+                </p>
+                <a href="#contact" class="btn btn--primary btn--large">
+                    <i class="fas fa-paper-plane"></i> Contáctanos hoy
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Contacto</span>
+                <h2 class="section__title">¿Listo para <span class="gradient-text">transformar tu equipo?</span></h2>
+                <p class="section__desc">
+                    Cuéntanos sobre tu proyecto y te conectaremos con el talento TI ideal para tu empresa.
+                </p>
+            </div>
+            <div class="contact__grid">
+                <form class="contact__form" id="contactForm">
+                    <div class="form__group">
+                        <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="form__group">
+                        <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="form__group">
+                        <input type="text" id="company" name="company" placeholder="Empresa">
+                    </div>
+                    <div class="form__group">
+                        <select id="service" name="service">
+                            <option value="">Selecciona un servicio</option>
+                            <option value="devops">DevOps</option>
+                            <option value="ai">Inteligencia Artificial</option>
+                            <option value="security">Ciberseguridad</option>
+                            <option value="nearshore">Talento Nearshore</option>
+                            <option value="uxui">Diseño UX/UI</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">
+                        <i class="fas fa-paper-plane"></i> Enviar mensaje
+                    </button>
+                </form>
+                <div class="contact__info">
+                    <div class="contact__info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>contacto@projectit.com</p>
+                    </div>
+                    <div class="contact__info-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Teléfono</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="contact__info-card">
+                        <i class="fas fa-location-dot"></i>
+                        <h4>Ubicación</h4>
+                        <p>LATAM · Remoto Global</p>
+                    </div>
+                    <div class="contact__info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Disponibilidad</h4>
+                        <p>Inmediata · Nearshore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="logo">
+                        <span class="logo__icon">&#9881;</span>
+                        <span class="logo__text">Project <span class="logo__highlight">IT</span></span>
+                    </a>
+                    <p>Talento TI que transforma empresas. De LATAM al mundo.</p>
+                    <div class="footer__social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer__links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#services">DevOps</a></li>
+                        <li><a href="#services">Inteligencia Artificial</a></li>
+                        <li><a href="#services">Ciberseguridad</a></li>
+                        <li><a href="#services">Talento Nearshore</a></li>
+                        <li><a href="#services">Diseño UX/UI</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </div>
+                <div class="footer__newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Recibe las últimas tendencias TI</p>
+                    <form class="footer__form">
+                        <input type="email" placeholder="tu@email.com" required>
+                        <button type="submit" aria-label="Suscribirse"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 Project IT. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
