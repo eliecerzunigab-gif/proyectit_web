@@ -74,55 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateActiveLink);
 
     // ==========================================
-    // 4. COUNTER ANIMATION (Stats)
-    // ==========================================
-    function animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        const duration = 2000; // ms
-        const startTime = performance.now();
-        const startValue = 0;
-
-        function updateCounter(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const currentValue = Math.floor(eased * target);
-            
-            element.textContent = currentValue + (target === 98 ? '%' : '+');
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = target + (target === 98 ? '%' : '+');
-            }
-        }
-
-        requestAnimationFrame(updateCounter);
-    }
-
-    // Intersection Observer for counters
-    const statsSection = document.querySelector('.hero__stats');
-    let countersAnimated = false;
-
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !countersAnimated) {
-                countersAnimated = true;
-                const statNumbers = document.querySelectorAll('.stat__number');
-                statNumbers.forEach(animateCounter);
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-
-    // ==========================================
-    // 5. SCROLL REVEAL ANIMATIONS
+    // 4. SCROLL REVEAL ANIMATIONS
     // ==========================================
     function createScrollReveal() {
         const elements = document.querySelectorAll('.service-card, .about__card, .contact__info-card');
@@ -151,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createScrollReveal();
 
     // ==========================================
-    // 6. CONTACT FORM HANDLING
+    // 5. CONTACT FORM HANDLING
     // ==========================================
     const contactForm = document.getElementById('contactForm');
 
@@ -212,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 7. NOTIFICATION SYSTEM
+    // 6. NOTIFICATION SYSTEM
     // ==========================================
     function showNotification(message, type = 'success') {
         // Remove existing notification
@@ -295,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 8. PARALLAX EFFECT ON HERO
+    // 7. PARALLAX EFFECT ON HERO
     // ==========================================
     const heroBg = document.querySelector('.hero__bg');
     
@@ -309,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 9. SMOOTH SCROLL FOR ANCHOR LINKS
+    // 8. SMOOTH SCROLL FOR ANCHOR LINKS
     // ==========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -332,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 10. NEWSLETTER FORM
+    // 9. NEWSLETTER FORM
     // ==========================================
     const newsletterForm = document.querySelector('.footer__form');
     

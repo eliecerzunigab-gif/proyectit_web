@@ -359,35 +359,6 @@ ul {
     animation: fadeInUp 0.6s ease 0.3s both;
 }
 
-/* Stats */
-.hero__stats {
-    display: flex;
-    gap: 40px;
-    animation: fadeInUp 0.6s ease 0.4s both;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat__number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1;
-}
-
-.stat__label {
-    font-size: 0.85rem;
-    color: var(--gray-400);
-    margin-top: 4px;
-    display: block;
-}
-
 /* Code Card */
 .hero__visual {
     display: flex;
@@ -908,10 +879,6 @@ ul {
         justify-content: center;
     }
 
-    .hero__stats {
-        justify-content: center;
-    }
-
     .hero__visual {
         display: none;
     }
@@ -973,11 +940,6 @@ ul {
         font-size: clamp(2rem, 8vw, 2.8rem);
     }
 
-    .hero__stats {
-        flex-wrap: wrap;
-        gap: 24px;
-    }
-
     .about__grid {
         grid-template-columns: 1fr;
     }
@@ -1017,11 +979,6 @@ ul {
 
     .hero__actions .btn {
         justify-content: center;
-    }
-
-    .hero__stats {
-        flex-direction: column;
-        gap: 16px;
     }
 
     .contact__info {
