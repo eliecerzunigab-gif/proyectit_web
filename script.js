@@ -96,6 +96,43 @@ Object.defineProperty(window, 'console', {
 document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
+    // 0. HERO BACKGROUND SLIDER
+    // ==========================================
+    (function initHeroSlider() {
+        const slides = document.querySelectorAll('.hero__slide');
+        if (slides.length === 0) return;
+
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        const intervalTime = 8000; // 8 seconds
+
+        function goToSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % totalSlides;
+            goToSlide(next);
+        }
+
+        // Start the slider
+        let slideInterval = setInterval(nextSlide, intervalTime);
+
+        // Pause on hover (opcional, mejora UX)
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            hero.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextSlide, intervalTime);
+            });
+        }
+    })();
+
+    // ==========================================
     // 1. NAVBAR - SCROLL EFFECT
     // ==========================================
     const header = document.getElementById('header');
