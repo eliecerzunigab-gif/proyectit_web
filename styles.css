@@ -301,74 +301,97 @@ ul {
     padding: 120px 0 80px;
 }
 
-/* Background Slider - Optimizado para todos los dispositivos */
+/* Background Slider - Imágenes más pequeñas y centradas como ventanas */
 .hero__slider {
     position: absolute;
     inset: 0;
     z-index: 0;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero__slide {
     position: absolute;
-    inset: -5px; /* Pequeño extra para evitar bordes blancos en ciertos viewports */
+    width: min(75vw, 800px);
+    height: min(55vh, 500px);
+    border-radius: 20px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     opacity: 0;
-    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity;
-    /* Asegura que la imagen se vea bien en cualquier relación de aspecto */
-    background-attachment: fixed;
-}
-
-/* Fallback para dispositivos que no soportan background-attachment: fixed */
-@supports not (background-attachment: fixed) {
-    .hero__slide {
-        background-attachment: scroll;
-    }
+    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+    transform: scale(0.95);
+    /* Centrado automático con flex del padre */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
 }
 
 .hero__slide.active {
-    opacity: 1;
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .hero__slide--1 {
     background-image: url('Imagenes/ProyectITWEB1.jpg');
-    /* Prioriza la parte central de la imagen en todos los tamaños */
-    background-position: center center;
 }
 
 .hero__slide--2 {
     background-image: url('Imagenes/ProyectITWEB2.jpg');
-    background-position: center center;
 }
 
 .hero__slide--3 {
     background-image: url('Imagenes/ProyectITWEB3.jpg');
-    background-position: center center;
 }
 
-/* Overlay oscuro para legibilidad del texto - más fuerte en los bordes */
+.hero__slide--4 {
+    background-image: url('Imagenes/mundo.png');
+    background-size: contain;
+    background-color: rgba(11, 13, 26, 0.3);
+    background-blend-mode: overlay;
+}
+
+/* Overlay oscuro para legibilidad del texto */
 .hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
     background: 
-        /* Gradiente principal oscuro */
         linear-gradient(
             135deg,
-            rgba(11, 13, 26, 0.88) 0%,
-            rgba(11, 13, 26, 0.60) 50%,
-            rgba(11, 13, 26, 0.45) 100%
-        ),
-        /* Gradiente adicional para oscurecer bordes en pantallas anchas */
-        radial-gradient(
-            ellipse at center,
-            transparent 50%,
-            rgba(11, 13, 26, 0.3) 100%
+            rgba(11, 13, 26, 0.92) 0%,
+            rgba(11, 13, 26, 0.70) 40%,
+            rgba(11, 13, 26, 0.50) 100%
         );
     pointer-events: none;
+}
+
+/* Mundo decorativo flotante (fijo, no del slider) */
+.hero__mundo {
+    position: absolute;
+    z-index: 1;
+    width: min(40vw, 350px);
+    height: min(40vw, 350px);
+    background-image: url('Imagenes/mundo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.08;
+    pointer-events: none;
+    bottom: -5%;
+    right: -5%;
+    animation: mundoFloat 20s ease-in-out infinite;
+}
+
+@keyframes mundoFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-20px, -30px) rotate(5deg); }
+    50% { transform: translate(10px, -50px) rotate(-3deg); }
+    75% { transform: translate(-15px, -20px) rotate(4deg); }
 }
 
 .hero__bg {
@@ -971,6 +994,25 @@ ul {
 @media (max-width: 768px) {
     .section {
         padding: 60px 0;
+    }
+
+    /* Slider más pequeño en móviles */
+    .hero__slide {
+        width: min(85vw, 400px);
+        height: min(35vh, 280px);
+        border-radius: 16px;
+    }
+
+    .hero__slide.active {
+        opacity: 0.5;
+    }
+
+    .hero__mundo {
+        width: min(50vw, 200px);
+        height: min(50vw, 200px);
+        opacity: 0.05;
+        bottom: -2%;
+        right: -8%;
     }
 
     .nav {
