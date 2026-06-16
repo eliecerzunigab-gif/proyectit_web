@@ -301,46 +301,35 @@ ul {
     padding: 120px 0 80px;
 }
 
-/* Background Slider - Imagen amplia con movimiento armónico */
+/* Background Slider - Imagen de fondo completo sin bordes */
 .hero__slider {
     position: absolute;
     inset: 0;
     z-index: 0;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .hero__slide {
     position: absolute;
-    width: min(92vw, 1100px);
-    height: min(80vh, 700px);
-    background-size: contain;
+    inset: -10px; /* Se extiende más allá para evitar bordes */
+    background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    /* Animación de flotación armónica */
-    animation: heroFloat 12s ease-in-out infinite;
+    /* Animación de flotación armónica muy sutil */
+    animation: heroFloat 15s ease-in-out infinite;
     will-change: transform;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.7;
-    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.4));
+    opacity: 0.55;
 }
 
 @keyframes heroFloat {
     0%, 100% {
-        transform: translate(-50%, -50%) translateY(0px) scale(1);
+        transform: scale(1) translateY(0px);
     }
-    25% {
-        transform: translate(-50%, -50%) translateY(-15px) scale(1.02);
+    33% {
+        transform: scale(1.03) translateY(-10px);
     }
-    50% {
-        transform: translate(-50%, -50%) translateY(0px) scale(1);
-    }
-    75% {
-        transform: translate(-50%, -50%) translateY(-8px) scale(1.01);
+    66% {
+        transform: scale(1.01) translateY(-5px);
     }
 }
 
@@ -963,13 +952,6 @@ ul {
 @media (max-width: 768px) {
     .section {
         padding: 60px 0;
-    }
-
-    /* Slider más amplio en móviles */
-    .hero__slide {
-        width: min(95vw, 500px);
-        height: min(45vh, 350px);
-        opacity: 0.6;
     }
 
     .nav {
