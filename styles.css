@@ -301,7 +301,7 @@ ul {
     padding: 120px 0 80px;
 }
 
-/* Background Slider - Imágenes más pequeñas y centradas como ventanas */
+/* Background Slider - Imagen amplia con movimiento armónico */
 .hero__slider {
     position: absolute;
     inset: 0;
@@ -314,33 +314,38 @@ ul {
 
 .hero__slide {
     position: absolute;
-    width: min(75vw, 800px);
-    height: min(55vh, 500px);
-    border-radius: 20px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
-    background-size: cover;
+    width: min(92vw, 1100px);
+    height: min(80vh, 700px);
+    background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    opacity: 0;
-    transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
-    transform: scale(0.95);
-    /* Centrado automático con flex del padre */
+    /* Animación de flotación armónica */
+    animation: heroFloat 12s ease-in-out infinite;
+    will-change: transform;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.95);
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.4));
 }
 
-.hero__slide.active {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1);
+@keyframes heroFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateY(-15px) scale(1.02);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(0px) scale(1);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateY(-8px) scale(1.01);
+    }
 }
 
 .hero__slide--mundo {
     background-image: url('Imagenes/mundo.png');
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 /* Overlay oscuro para legibilidad del texto */
@@ -960,15 +965,11 @@ ul {
         padding: 60px 0;
     }
 
-    /* Slider más pequeño en móviles */
+    /* Slider más amplio en móviles */
     .hero__slide {
-        width: min(85vw, 400px);
-        height: min(35vh, 280px);
-        border-radius: 16px;
-    }
-
-    .hero__slide.active {
-        opacity: 0.5;
+        width: min(95vw, 500px);
+        height: min(45vh, 350px);
+        opacity: 0.6;
     }
 
     .nav {
