@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Project IT</title>
+    <meta name="description" content="Página no encontrada - Project IT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0B0D1A;
+            color: #F0F0F5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+        .container { max-width: 600px; }
+        .error-code {
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #6C63FF, #00D9A6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #FFFFFF;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #B0B0C5;
+            line-height: 1.7;
+            margin-bottom: 36px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            text-decoration: none;
+            background: linear-gradient(135deg, #6C63FF, #00D9A6);
+            color: #FFFFFF;
+            box-shadow: 0 8px 30px rgba(108, 99, 255, 0.15);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(108, 99, 255, 0.2);
+        }
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #6C63FF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="error-code">404</div>
+        <h1>Página no encontrada</h1>
+        <p>Parece que el talento que buscas está en otra rama. <br>Volvamos al inicio.</p>
+        <a href="/" class="btn">
+            <i class="fas fa-arrow-left"></i> Volver al inicio
+        </a>
+    </div>
+</body>
+</html>
